@@ -2,6 +2,8 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 
 import logo from '../../../../assets/logo.png'
+import mockTopo from '../../../mocks/topo'
+import mockProdutores from '../../../mocks/produtores'
 
 const nomeUsuario = 'Natalia'
 
