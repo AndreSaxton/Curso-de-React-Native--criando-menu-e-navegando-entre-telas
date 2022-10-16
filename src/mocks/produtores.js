@@ -4,7 +4,8 @@ import jennyJack from '../../assets/produtores/jenny-jack.png'
 import grow from '../../assets/produtores/grow.png'
 import potager from '../../assets/produtores/potager.png'
 
-const grearNumeroAleatorio = (min, max) => {
+const gerarNumeroAleatorio = (min, max) => {
+    console.log('gerarNumeroAleatorio = ', Math.floor(Math.random() * (max - min + 1) + min));
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
@@ -14,32 +15,32 @@ const produtores = {
         {
             nome: "Green",
             imagem: green,
-            distancia: '${grearNumeroAleatorio(1,500)}m',
-            estrelas: grearNumeroAleatorio(1,5),
+            distancia: gerarNumeroAleatorio(1,500)+'m',
+            estrelas: gerarNumeroAleatorio(1,5),
         },
         {
             nome: "Salad",
             imagem: salad,
-            distancia: '${grearNumeroAleatorio(1,500)}m',
-            estrelas: grearNumeroAleatorio(1,5),
+            distancia: gerarNumeroAleatorio(1,500)+'m',
+            estrelas: gerarNumeroAleatorio(1,5),
         },
         {
             nome: "Jenny Jack Farm",
             imagem: jennyJack,
-            distancia: '${grearNumeroAleatorio(1,500)}m',
-            estrelas: grearNumeroAleatorio(1,5),
+            distancia: gerarNumeroAleatorio(1,500)+'m',
+            estrelas: gerarNumeroAleatorio(1,5),
         },
         {
             nome: "Grow",
             imagem: grow,
-            distancia: '${grearNumeroAleatorio(1,500)}m',
-            estrelas: grearNumeroAleatorio(1,5),
+            distancia: gerarNumeroAleatorio(1,500)+'m',
+            estrelas: gerarNumeroAleatorio(1,5),
         },
         {
             nome: "potager",
             imagem: potager,
-            distancia: '${grearNumeroAleatorio(1,500)}m',
-            estrelas: grearNumeroAleatorio(1,5),
+            distancia: gerarNumeroAleatorio(1,500)+'m',
+            estrelas: gerarNumeroAleatorio(1,5),
         }
     ]
 }
