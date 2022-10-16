@@ -10,7 +10,6 @@ export default function Produtores({ topo: Topo }) {
 
     useEffect(() => {
         const retorno = carregaProdutores();
-        console.log(retorno);
         setTitulo(retorno.titulo);
         setLista(retorno.lista);
     },
