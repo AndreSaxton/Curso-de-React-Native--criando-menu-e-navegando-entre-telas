@@ -6,7 +6,7 @@ const distanciaEmMetros = (distancia) => {
     return `${distancia}m`;
 }
 
-export default function Produtor({ nome, imagem, distancia, estrelas }) {
+export default function Produtor({ nome, imagem, distancia, estrelas, aoPressionar }) {
     const [ selecionado, inverterSelecionado ] = useReducer(
         (selecionado) => !selecionado,
         false
@@ -19,7 +19,8 @@ export default function Produtor({ nome, imagem, distancia, estrelas }) {
 
     return <TouchableOpacity
             style={estilos.cartao}
-            onPress={inverterSelecionado}
+            // onPress={inverterSelecionado}
+            onPress={aoPressionar}
         >
         <Image style={estilos.imagem} source={imagem} accessibilityLabel={nome} />
         <View style={estilos.informacoes}>
