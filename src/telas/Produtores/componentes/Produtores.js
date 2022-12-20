@@ -22,7 +22,7 @@ export default function Produtores({ topo: Topo, melhoresProdutores = true }) {
         data={lista}
         renderItem={({ item }) => <Produtor {...item}
         aoPressionar={() => {
-            navigation.navigate('Produtor');
+            navigation.navigate('Produtor', item);
         }}
         />}
         keyExtractor={({nome}) => nome }
