@@ -6,8 +6,13 @@ import Texto from './componentes/Texto';
 import Topo from './componentes/Topo';
 import Detalhes from './componentes/Detalhes';
 import Item from './componentes/Item';
+import { useRoute } from '@react-navigation/native';
 
-export default function Cesta({ topo, detalhes, itens }) {
+export default function Cesta() {
+    const route = useRoute();
+
+    const { topo, detalhes, itens } = route.params;
+
     return <>
      <FlatList
        data = {itens.lista}
