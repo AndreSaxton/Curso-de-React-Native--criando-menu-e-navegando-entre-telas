@@ -1,10 +1,15 @@
 import React from "react";
-import { View, Image, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
 
 import Texto from './Texto';
 import Botao from './Botao';
+import useTextos from "../../../hooks/useTextos";
 
 export default function Detalhes({ nome, logoFazenda, nomeFazenda, descricao, preco, botao }){
+    const navigation = useNavigation();
+    const { botaoComprar } = useTextos();
+
     return <>
         <Texto style={estilos.nome}>{ nome }</Texto>
         <View style={estilos.fazenda}>
@@ -14,7 +19,11 @@ export default function Detalhes({ nome, logoFazenda, nomeFazenda, descricao, pr
         <Texto style={estilos.descricao}> { descricao } </Texto>
         <Texto style={estilos.preco}>{ preco }</Texto>
 
-        <Botao texto={ botao } style={estilos.botao} onPress = {() => {}} />
+        <TouchableOpacity 
+            style={estilos.botao} 
+            onPress = {() => navigation.popToTop()} >
+            <Texto style={estilos.botao}>{ botaoComprar }</Texto>
+        </TouchableOpacity>
 
     </>
 }
