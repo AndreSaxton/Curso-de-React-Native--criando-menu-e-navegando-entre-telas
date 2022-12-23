@@ -21,7 +21,7 @@ export default function Detalhes({ nome, logoFazenda, nomeFazenda, descricao, pr
 
         <TouchableOpacity 
             style={estilos.botao} 
-            onPress = {() => navigation.popToTop()} >
+            onPress = {() => navigation.navigate('HomeScreen', { compra: { nome }})} >
             <Texto style={estilos.botao}>{ botaoComprar }</Texto>
         </TouchableOpacity>
 
