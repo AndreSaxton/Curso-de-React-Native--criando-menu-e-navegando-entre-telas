@@ -10,17 +10,33 @@ export default function Produtores({ topo: Topo, melhoresProdutores = true }) {
     const navigation = useNavigation();
     const route = useRoute();
 
+    const [ exibeMensagem, setExibeMensagem ] = useState(false);
+
     const [titulo, lista] = useProdutores();
     const { tituloProdutores, mensagemCompra } = useTextos();
 
     const nomeCompra = route.params?.compra.nome;
+    const timestampCompra = route.params?.compra.timestamp;
     const mensagemCompleta = mensagemCompra?.replace('$NOME', nomeCompra);
+
+    useEffect(() => {
+        setExibeMensagem(!!nomeCompra);
+        let timeout;
+
+        if (nomeCompra){
+            timeout = setTimeout(() => {
+                setExibeMensagem(false);
+            }, 3000);
+        }
+
+        return () => clearTimeout(timeout);
+    }, [timestampCompra]);
 
     const TopoLista = () => {
         return <>
             <Topo />
 
-            { !!nomeCompra &&  <Text style={estilos.compra}>{ mensagemCompleta }</Text> }
+            { exibeMensagem &&  <Text style={estilos.compra}>{ mensagemCompleta }</Text> }
             <Text style={estilos.titulo}>{ titulo }</Text>
         </>
     }
