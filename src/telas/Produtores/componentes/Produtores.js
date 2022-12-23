@@ -4,20 +4,23 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 
 import Produtor from './Produtor'
 import useProdutores from '../../../hooks/useProdutores';
+import useTextos from "../../../hooks/useTextos";
 
 export default function Produtores({ topo: Topo, melhoresProdutores = true }) {
     const navigation = useNavigation();
     const route = useRoute();
 
-    const nomeCompra = route.params?.compra.nome;
-
     const [titulo, lista] = useProdutores();
+    const { tituloProdutores, mensagemCompra } = useTextos();
+
+    const nomeCompra = route.params?.compra.nome;
+    const mensagemCompleta = mensagemCompra?.replace('$NOME', nomeCompra);
 
     const TopoLista = () => {
         return <>
             <Topo />
 
-            <Text>{ nomeCompra }</Text>
+            { !!nomeCompra &&  <Text style={estilos.compra}>{ mensagemCompleta }</Text> }
             <Text style={estilos.titulo}>{ titulo }</Text>
         </>
     }
@@ -43,5 +46,12 @@ const estilos = StyleSheet.create({
         marginTop: 16,
         fontWeight: 'bold',
         color: '#464646',
+    },
+    compra:{
+        backgroundColor: '#EAF5F3',
+        padding: 16,
+        color: '#464646',
+        fontSize: 16,
+        lineHeight: 26,
     },
 })
